@@ -64,7 +64,7 @@ AS
 
             IF( @remove_history = 1 )
               BEGIN
-                  SET @stmt = N'drop table ' + Db_name() + '_tdc_history.'
+                  SET @stmt = N'drop table ' + REPLACE(DB_NAME(),'-','_') + '_tdc_history.'
                               + @source_name + N';'
                   SET @stmt = @stmt + N'DROP INDEX tdc_' + @source_name
                               + N' ON ' + @source_table + N';

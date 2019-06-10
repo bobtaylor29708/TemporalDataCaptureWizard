@@ -70,7 +70,7 @@ AS
       SET @stmt = N'ALTER TABLE ' + @source_schema + '.'
                   + @source_name
                   + ' SET (SYSTEM_VERSIONING = ON (HISTORY_TABLE = '
-                  + Db_name() + '_tdc_history.' + @source_name
+                  + REPLACE(DB_NAME(),'-','_') + '_tdc_history.' + @source_name
                   + '));'
 
       IF( @debug = 1 )

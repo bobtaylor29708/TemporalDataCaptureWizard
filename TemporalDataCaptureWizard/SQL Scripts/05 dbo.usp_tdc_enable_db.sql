@@ -27,7 +27,7 @@ AS
 
       SET @db_id = Db_id()
       SET nocount ON
-      SET @db_name = Db_name()
+      SET @db_name = REPLACE(DB_NAME(),'-','_')
 
       IF( @db_name = N'model'
            OR @db_name = N'msdb'

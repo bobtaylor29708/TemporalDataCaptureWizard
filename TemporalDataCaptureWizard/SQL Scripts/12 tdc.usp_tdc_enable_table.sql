@@ -68,7 +68,7 @@ AS
       SET @column_list_with_datatypes = @column_list_with_datatypes + Char(13)
                                         + Char(9) + N'[Status] nvarchar(10) NOT NULL'
 
-      DECLARE @history_table SYSNAME = Db_name() + N'_tdc_history.' + @source_name
+      DECLARE @history_table SYSNAME = REPLACE(DB_NAME(),'-','_') + N'_tdc_history.' + @source_name
 
       EXEC tdc.Usp_tdc_enable_table_internal
         @source_schema,

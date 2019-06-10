@@ -43,7 +43,7 @@ BEGIN
 		DROP FUNCTION  IF EXISTS [tdc].[ufn_ColumnType];
 		DROP TABLE IF EXISTS [tdc].[Version];
 		DROP SCHEMA IF EXISTS [tdc];
-		DECLARE @schemaName sysname = db_name()+'_tdc_history'
+		DECLARE @schemaName sysname = REPLACE(DB_NAME(),'-','_')+'_tdc_history'
 		DECLARE @dropstmt nvarchar(255) = N'DROP SCHEMA IF EXISTS '+@schemaName
 		EXEC (@dropstmt)
 		DROP USER IF EXISTS [tdc];
